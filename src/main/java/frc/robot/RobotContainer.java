@@ -5,8 +5,9 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-import frc.robot.commands.ExampleCommand;
-import frc.robot.subsystems.RomiDrivetrain;
+import edu.wpi.first.wpilibj.romi.OnBoardIO;
+import edu.wpi.first.wpilibj.romi.OnBoardIO.ChannelMode;
+import frc.robot.commands.MyFirstCommand;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -17,9 +18,9 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final RomiDrivetrain m_romiDrivetrain = new RomiDrivetrain();
+  private final OnBoardIO onboardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
 
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_romiDrivetrain);
+  private final MyFirstCommand autoCommand = new MyFirstCommand(onboardIO, 10);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -42,6 +43,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return autoCommand;
   }
 }
