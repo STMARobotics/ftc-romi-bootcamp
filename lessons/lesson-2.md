@@ -1,4 +1,4 @@
-# Lesson 2 - Control the LED with the Controller
+# Lesson 2 - Control the LED with the Controller Two Buttons
 
 ## Make OnboardLED Subsystem
 
