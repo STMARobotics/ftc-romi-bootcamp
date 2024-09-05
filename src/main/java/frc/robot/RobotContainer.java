@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.romi.OnBoardIO;
 import edu.wpi.first.wpilibj.romi.OnBoardIO.ChannelMode;
 import frc.robot.commands.MyFirstCommand;
+import frc.robot.commands.TeleopLED;
+import frc.robot.subsystems.OnboardLED;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -19,8 +21,13 @@ import edu.wpi.first.wpilibj2.command.Command;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final OnBoardIO onboardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
+  private final OnboardLED onboardLED = new OnboardLED(onboardIO);
+    // Assumes a gamepad plugged into channnel 0
+    private final XboxController xboxController = new XboxController(0);
 
-  private final MyFirstCommand autoCommand = new MyFirstCommand(onboardIO, 10);
+    private MyFirstCommand autoCommand = new  MyFirstCommand(onboardIO, 10);
+
+    private final TeleopLED led = new TeleopLED(onboardLED, xboxController);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -34,7 +41,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    onboardLED.setDefaultCommand(led);
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
