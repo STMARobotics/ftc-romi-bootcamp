@@ -1,4 +1,4 @@
-# Lesson 2 - Control the LED with the Controller Two Buttons
+# Lesson 2 - Control the LED with the Controller
 
 ## Reset workspace
 Discard all changes - this will get you back to a spot that is the same for everyone on the lesson.
