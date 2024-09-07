@@ -8,6 +8,8 @@ Discard all changes - this will get you back to a spot that is the same for ever
 * Add a new private variable of type OnBoardIO and call it obBoardIO
 * Update the constructor `public OnBoardLED()` to take a value of type OnBoardIO
 * In the constructor set `this.onBoardIO` equal to the value passed in
+* Create a method called `public void setYellowLed(boolean value)`
+* in the method on this.onBoardIO call the setYellowLed method and pass in the value
 
 ## Make TeleopLED Command
 * Go to the file TeleopLED in the commands folder
@@ -19,7 +21,7 @@ Discard all changes - this will get you back to a spot that is the same for ever
 * Set the class fields to the values passed into the constructor
     * this.obBoardLED = onBoardLED
     * this.xboxController = xboxController
-* in the consturctor call addRequirements with the onBoardLED value to register it with the scheduler
+* in the constructor call addRequirements with the onBoardLED value to register it with the scheduler
 * Update the execute method with
     * in the if block that checks that the y button being pressed is true vall this.obBoardLED.setYellowLed(true)
     * in the if block that checks if the x button is pressed do the same thing but set it to false
@@ -27,7 +29,7 @@ Discard all changes - this will get you back to a spot that is the same for ever
 ## Update RobotContainer
 * add private final variable for the OnBoardLED `private final OnBoardLED onBoardLED = new OnBoardLED(onBoardIO)`
 * Add private final xboxController variable `private final XboxController xboxController = new XboxController(0)`
-* Add private TeleopLED command called led that get the onBoardLED and xboxController
+* Add private TeleopLED command called led that receives the onBoardLED and xboxController
 * In configureButtonBindings set the default command on the onBoardLED to take the led command you made
 
 ## Run code 
