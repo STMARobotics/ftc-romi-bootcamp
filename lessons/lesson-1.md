@@ -28,3 +28,5 @@ Look, you should see a yellow led light up on the ROMI. GREAT it works. If you m
 Close the window 
 
 You are done with Lesson 1
+
+Checkout lesson-2 
