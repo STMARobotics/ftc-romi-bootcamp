@@ -28,17 +28,11 @@ public class TeleopLED extends Command{
         // on the x button it is set to false 
         if (this.xboxController.getYButton()) {
             System.out.println("Y BUTTON");
-<<<<<<< HEAD
-            this.onboardLED.setYellowLed(true);
-        } else if (this.onboardLED.getYellowLed()){
-            this.onboardLED.setYellowLed(false);
-=======
             this.onBoardLED.setYellowLed(true);
-        } else if (this.xboxController.getXButton()) {
-            System.out.println("X BUTTON");
+        } else if (this.onBoardLED.getYellowLed()){
             this.onBoardLED.setYellowLed(false);
->>>>>>> lesson-2-solution
-        }
+        } 
+        
     }    
     
 }
