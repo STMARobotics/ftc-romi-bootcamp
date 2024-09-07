@@ -7,8 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.romi.OnBoardIO;
 import edu.wpi.first.wpilibj.romi.OnBoardIO.ChannelMode;
+import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.MyFirstCommand;
 import frc.robot.commands.TeleopLED;
+import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.OnboardLED;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -29,6 +31,9 @@ public class RobotContainer {
 
     private final TeleopLED led = new TeleopLED(onboardLED, xboxController);
 
+    private final Drivetrain drivetrain = new Drivetrain();
+
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -43,6 +48,7 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     onboardLED.setDefaultCommand(led);
+    drivetrain.setDefaultCommand(getArcadeDriveCommand());
   }
 
   /**
@@ -53,5 +59,15 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return autoCommand;
+  }
+
+    /**
+   * Use this to pass the teleop command to the main {@link Robot} class.
+   *
+   * @return the command to run in teleop
+   */
+  public Command getArcadeDriveCommand() {
+    return new ArcadeDrive(
+        drivetrain, () -> -xboxController.getLeftY(), () -> -xboxController.getRightX());
   }
 }
