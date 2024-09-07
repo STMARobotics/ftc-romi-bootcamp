@@ -3,16 +3,21 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.romi.OnBoardIO;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class OnboardLED extends SubsystemBase{
+public class OnBoardLED extends SubsystemBase{
 
-    private OnBoardIO onboardIO;
+    // Add Private OnBoardIO variable 
+    private OnBoardIO onBoardIO;
 
-    public OnboardLED(OnBoardIO onboardIO) {
-        this.onboardIO = onboardIO;
+    // Update the constructor to accept a OnBoardIO value
+    // set this.onboardIO = onboardIO;
+    public OnBoardLED(OnBoardIO onBoardIO) {
+        this.onBoardIO = onBoardIO;
     }
 
+    // Create a setter called setYellowLed that takes a boolean called setYellowLed
+    // thake that value and use it on this.onboardIO.setYellowLed
     public void setYellowLed(boolean value){
-        this.onboardIO.setYellowLed(value);
+        this.onBoardIO.setYellowLed(value);
     }
     
 }
