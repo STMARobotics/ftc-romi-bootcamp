@@ -18,7 +18,6 @@ public class TeleopLED extends Command{
 
     @Override
     public void execute() {
-        // change the else if to only set it to false if it is true
         if (this.xboxController.getYButton()) {
             System.out.println("Y BUTTON");
             this.onBoardLED.setYellowLed(true);
