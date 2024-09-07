@@ -22,7 +22,7 @@ public class TeleopLED extends Command{
         if (this.xboxController.getYButton()) {
             System.out.println("Y BUTTON");
             this.onBoardLED.setYellowLed(true);
-        } else if (this.onBoardLED.getYellowLed()){
+        } else if (this.xboxController.getXButton()) {
             this.onBoardLED.setYellowLed(false);
         } 
     }    
