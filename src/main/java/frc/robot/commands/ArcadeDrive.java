@@ -25,9 +25,9 @@ public class ArcadeDrive extends Command {
       Drivetrain drivetrain,
       Supplier<Double> xaxisSpeedSupplier,
       Supplier<Double> zaxisRotateSupplier) {
-    this.drivetrain = drivetrain;
-    this.xaxisSpeedSupplier = xaxisSpeedSupplier;
-    this.zaxisRotateSupplier = zaxisRotateSupplier;
+
+    // apply the passed in values to the values on the class
+
     addRequirements(drivetrain);
   }
 
@@ -39,7 +39,7 @@ public class ArcadeDrive extends Command {
   @Override
   public void execute() {
     // pass the values from the suppliers into the drivetrain arcadeDrive
-    drivetrain.arcadeDrive(xaxisSpeedSupplier.get(), zaxisRotateSupplier.get());
+    
   }
 
   // Called once the command ends or is interrupted.

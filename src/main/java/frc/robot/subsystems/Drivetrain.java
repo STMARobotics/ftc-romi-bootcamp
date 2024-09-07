@@ -39,7 +39,7 @@ public class Drivetrain extends SubsystemBase {
     // We need to invert one side of the drivetrain so that positive voltages
     // result in both sides moving forward. Depending on how your robot's
     // gearbox is constructed, you might have to invert the left side instead.
-    this.rightMotor.setInverted(true);
+    
 
     // Use inches as unit for encoder distances
     this.leftEncoder.setDistancePerPulse((Math.PI * kWheelDiameterInch) / kCountsPerRevolution);
@@ -50,7 +50,7 @@ public class Drivetrain extends SubsystemBase {
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
 
     // set the value on the diff drive to the xaxisSpeed and the zaxisRotate
-    this.diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
+    
   }
 
   public void resetEncoders() {

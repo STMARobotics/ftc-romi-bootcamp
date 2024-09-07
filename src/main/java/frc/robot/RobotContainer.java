@@ -28,7 +28,7 @@ public class RobotContainer {
     private final TeleopLED led = new TeleopLED(onBoardLED, xboxController);
 
     // add a private variable for the drive train
-    private final Drivetrain drivetrain = new Drivetrain();
+    
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -47,7 +47,7 @@ public class RobotContainer {
     onBoardLED.setDefaultCommand(led);
 
     // set the default command on the drive train to be the getArcadeDriveCommand()
-    drivetrain.setDefaultCommand(getArcadeDriveCommand());
+   
     
   }
 
@@ -63,8 +63,5 @@ public class RobotContainer {
 
   // Create a public method call getArcadeDriveCommand that will return a command
   // in it return a new Arcade Drive that is instatiated with the drive train and the suppliers
-  public Command getArcadeDriveCommand() {
-    return new ArcadeDrive(
-        drivetrain, () -> -xboxController.getLeftY(), () -> -xboxController.getRightX());
-  }
+  
 }
