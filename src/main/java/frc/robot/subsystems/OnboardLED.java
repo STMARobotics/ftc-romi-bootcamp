@@ -5,30 +5,31 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class OnBoardLED extends SubsystemBase{
 
-        // Add Private OnBoardIO variable 
     private OnBoardIO onBoardIO;
+    
+    // Add private boolean yellowLEDState
     private boolean yellowLEDState;
 
-    // Update the constructor to accept a OnBoardIO value
-    // set this.onboardIO = onboardIO;
+ 
     public OnBoardLED(OnBoardIO onBoardIO) {
         this.onBoardIO = onBoardIO;
-        this.yellowLEDState = false;
-        this.setYellowLed(yellowLEDState);
+        
+        // set the initial state for the LED to false
+        this.setYellowLed(false);
     }
-    // Create a setter called setYellowLed that takes a boolean called setYellowLed
-    // thake that value and use it on this.onboardIO.setYellowLed
+    // apply the value to the state variable and then call up to set it
     public void setYellowLed(boolean value){
         this.yellowLEDState = value; 
-        this.onBoardIO.setYellowLed(value);
     }
     
+    // create get method for the yellow led
     public boolean getYellowLed(){
         return this.yellowLEDState;
     }
 
     @Override
     public void periodic() {
-        onBoardIO.setYellowLed(this.yellowLEDState);
+        // Add the this.onBoardIO.setYellowLed call here     
+        this.onBoardIO.setYellowLed(this.yellowLEDState);
     }
 }

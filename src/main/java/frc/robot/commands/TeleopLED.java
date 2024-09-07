@@ -6,26 +6,19 @@ import frc.robot.subsystems.OnBoardLED;
 
 public class TeleopLED extends Command{
 
-    // Add private variable for OnBoardLED
     private OnBoardLED onBoardLED;
 
-    // Add private variable for XboxController
     private XboxController xboxController;
 
-    // Update constructor to take the OnboardLED and the XboxController and set the values
     public TeleopLED(OnBoardLED onBoardLED, XboxController xboxController) {
        this.onBoardLED = onBoardLED;
        this.xboxController = xboxController;
-
-       // call addRequiremens with the onBoardLed 
        addRequirements(onBoardLED);
     }
 
     @Override
     public void execute() {
-
-        // make it that when the y button is pressed the yellow led is set to true and
-        // on the x button it is set to false 
+        // change the else if to only set it to false if it is true
         if (this.xboxController.getYButton()) {
             System.out.println("Y BUTTON");
             this.onBoardLED.setYellowLed(true);
