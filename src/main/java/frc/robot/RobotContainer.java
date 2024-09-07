@@ -11,7 +11,7 @@ import frc.robot.commands.ArcadeDrive;
 import frc.robot.commands.MyFirstCommand;
 import frc.robot.commands.TeleopLED;
 import frc.robot.subsystems.Drivetrain;
-import frc.robot.subsystems.OnboardLED;
+import frc.robot.subsystems.OnBoardLED;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -21,15 +21,21 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
-  private final OnBoardIO onboardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
-  private final OnboardLED onboardLED = new OnboardLED(onboardIO);
+    // The robot's subsystems and commands are defined here...
+    private final OnBoardIO onBoardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
+  
+    // create a new OnBoardLED
+    private final OnBoardLED onBoardLED = new OnBoardLED(onBoardIO);
     // Assumes a gamepad plugged into channnel 0
+  
+    // create new XboxController
     private final XboxController xboxController = new XboxController(0);
 
-    private MyFirstCommand autoCommand = new  MyFirstCommand(onboardIO, 10);
-
-    private final TeleopLED led = new TeleopLED(onboardLED, xboxController);
+    
+    private MyFirstCommand autoCommand = new  MyFirstCommand(onBoardIO, 10);
+  
+    // create new TeleopLED command
+    private final TeleopLED led = new TeleopLED(onBoardLED, xboxController);
 
     private final Drivetrain drivetrain = new Drivetrain();
 
@@ -47,8 +53,10 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    onboardLED.setDefaultCommand(led);
+     // bind the led command to the LED Subsystem
+    onBoardLED.setDefaultCommand(led);
     drivetrain.setDefaultCommand(getArcadeDriveCommand());
+    
   }
 
   /**

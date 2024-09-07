@@ -2,28 +2,29 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.OnboardLED;
+import frc.robot.subsystems.OnBoardLED;
 
 public class TeleopLED extends Command{
 
+    private OnBoardLED onBoardLED;
 
-    private OnboardLED onboardLED;
     private XboxController xboxController;
 
-    public TeleopLED(OnboardLED onboardLED, XboxController xboxController) {
-       this.onboardLED = onboardLED;
+    public TeleopLED(OnBoardLED onBoardLED, XboxController xboxController) {
+       this.onBoardLED = onBoardLED;
        this.xboxController = xboxController;
-       addRequirements(onboardLED);
+       addRequirements(onBoardLED);
     }
 
     @Override
     public void execute() {
+        // change the else if to only set it to false if it is true
         if (this.xboxController.getYButton()) {
             System.out.println("Y BUTTON");
-            this.onboardLED.setYellowLed(true);
-        } else if (this.onboardLED.getYellowLed()){
-            this.onboardLED.setYellowLed(false);
-        }
+            this.onBoardLED.setYellowLed(true);
+        } else if (this.onBoardLED.getYellowLed()){
+            this.onBoardLED.setYellowLed(false);
+        } 
     }    
     
 }
