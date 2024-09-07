@@ -32,7 +32,6 @@ public class TeleopLED extends Command{
         } else if (this.onBoardLED.getYellowLed()){
             this.onBoardLED.setYellowLed(false);
         } 
-        
     }    
     
 }
