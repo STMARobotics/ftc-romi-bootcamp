@@ -23,17 +23,16 @@ public class RobotContainer {
     private final OnBoardIO onBoardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
   
     // create a new OnBoardLED
-    private final OnBoardLED onBoardLED = new OnBoardLED(onBoardIO);
-    // Assumes a gamepad plugged into channnel 0
+    
   
     // create new XboxController
-    private final XboxController xboxController = new XboxController(0);
+   
 
     
     private MyFirstCommand autoCommand = new  MyFirstCommand(onBoardIO, 10);
   
     // create new TeleopLED command
-    private final TeleopLED led = new TeleopLED(onBoardLED, xboxController);
+    
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -50,7 +49,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     
     // bind the led command to the LED Subsystem
-    onBoardLED.setDefaultCommand(led);
+    
   }
 
   /**

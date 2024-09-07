@@ -8,6 +8,8 @@ Discard all changes - this will get you back to a spot that is the same for ever
 * Add a new private variable of type OnBoardIO and call it obBoardIO
 * Update the constructor `public OnBoardLED()` to take a value of type OnBoardIO
 * In the constructor set `this.onBoardIO` equal to the value passed in
+* Create a method called `public void setYellowLed(boolean value)`
+* in the method on this.onBoardIO call the setYellowLed method and pass in the value
 
 ## Make TeleopLED Command
 * Go to the file TeleopLED in the commands folder
