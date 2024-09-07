@@ -48,6 +48,8 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void arcadeDrive(double xaxisSpeed, double zaxisRotate) {
+
+    // set the value on the diff drive to the xaxisSpeed and the zaxisRotate
     this.diffDrive.arcadeDrive(xaxisSpeed, zaxisRotate);
   }
 

@@ -21,22 +21,13 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
-    // The robot's subsystems and commands are defined here...
     private final OnBoardIO onBoardIO = new OnBoardIO(ChannelMode.INPUT, ChannelMode.INPUT);
-  
-    // create a new OnBoardLED
     private final OnBoardLED onBoardLED = new OnBoardLED(onBoardIO);
-    // Assumes a gamepad plugged into channnel 0
-  
-    // create new XboxController
     private final XboxController xboxController = new XboxController(0);
-
-    
     private MyFirstCommand autoCommand = new  MyFirstCommand(onBoardIO, 10);
-  
-    // create new TeleopLED command
     private final TeleopLED led = new TeleopLED(onBoardLED, xboxController);
 
+    // add a private variable for the drive train
     private final Drivetrain drivetrain = new Drivetrain();
 
 
@@ -53,8 +44,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-     // bind the led command to the LED Subsystem
     onBoardLED.setDefaultCommand(led);
+
+    // set the default command on the drive train to be the getArcadeDriveCommand()
     drivetrain.setDefaultCommand(getArcadeDriveCommand());
     
   }
@@ -69,11 +61,8 @@ public class RobotContainer {
     return autoCommand;
   }
 
-    /**
-   * Use this to pass the teleop command to the main {@link Robot} class.
-   *
-   * @return the command to run in teleop
-   */
+  // Create a public method call getArcadeDriveCommand that will return a command
+  // in it return a new Arcade Drive that is instatiated with the drive train and the suppliers
   public Command getArcadeDriveCommand() {
     return new ArcadeDrive(
         drivetrain, () -> -xboxController.getLeftY(), () -> -xboxController.getRightX());
